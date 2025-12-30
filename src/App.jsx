@@ -12,12 +12,12 @@ const App = () => {
       return [];
     }
   };
-  
+
   const [allUsers, setAllUsers] = useState(getLocalData());
 
   return (
     <div className="w-screen h-screen p-8 flex justify-between bg-zinc-500">
-      <Form allUsers={allUsers} setAllUsers={setAllUsers} />
+      <Form setAllUsers={setAllUsers} />
       <AllContacts allUsers={allUsers} setAllUsers={setAllUsers} />
     </div>
   );
