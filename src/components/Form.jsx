@@ -1,12 +1,11 @@
 import { useState } from "react";
 
-const Form = ({setAllUsers}) => {
-  const [username, setUserName] = useState('');
-  const [image, setImage] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+const Form = ({ setAllUsers }) => {
+  const [username, setUserName] = useState("");
+  const [image, setImage] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
 
-  // const [allUsers, setAllUsers] = useState([]);
 
   function onFormSubmit(e) {
     e.preventDefault();
@@ -14,14 +13,19 @@ const Form = ({setAllUsers}) => {
     // const newUser = [...allUsers];
     // newUser.push({username, image, email, phone});
     // setAllUsers(newUser);
+    // localStorage.setItem('all-users', JSON.stringify(newUser));
 
-    setAllUsers((prev)=> [...prev, {username, image, email, phone}]);
+    setAllUsers((prev) => {
+      const updated = [...prev, { username, image, email, phone }];
+      localStorage.setItem('all-users', JSON.stringify(updated));
+      return updated;
+    });
+    // here prev will be considered as the previous data that is react sets allUsers data to prev
 
-    
-    setUserName('');
-    setImage('');
-    setPhone('');
-    setEmail('');
+    setUserName("");
+    setImage("");
+    setPhone("");
+    setEmail("");
   }
   return (
     <div className="form-section h-full w-[39.5%] rounded-l-xl bg-linear-to-r from-zinc-500 to-zinc-300 py-30">

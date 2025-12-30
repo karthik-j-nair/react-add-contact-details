@@ -8,6 +8,8 @@ const AllContacts = ({ allUsers, setAllUsers}) => {
     const copy = [...allUsers];
     copy.splice(id, 1);
     setAllUsers(copy)
+    
+    localStorage.setItem('all-users', JSON.stringify(copy));
   }
   
   return (
